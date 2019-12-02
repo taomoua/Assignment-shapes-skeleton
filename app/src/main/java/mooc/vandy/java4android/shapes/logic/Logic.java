@@ -9,16 +9,15 @@ import mooc.vandy.java4android.shapes.ui.OutputInterface;
  * Android interactions.  Designing the assignments this way allows
  * you to first learn key 'Java' features without having to beforehand
  * learn the complexities of Android.
- *
  */
-public class Logic 
-       implements LogicInterface {
+public class Logic
+        implements LogicInterface {
     /**
      * This is a String to be used in Logging (if/when you decide you
      * need it for debugging).
      */
-    public static final String TAG = 
-        Logic.class.getName();
+    public static final String TAG =
+            Logic.class.getName();
 
     /*
      * This is the variable that stores our OutputInterface instance.
@@ -46,7 +45,7 @@ public class Logic
      * It assigns the passed in [MainActivity] instance
      * (which implements [OutputInterface]) to 'out'
      */
-    public Logic(OutputInterface out){
+    public Logic(OutputInterface out) {
         mOut = out;
     }
 
@@ -70,28 +69,28 @@ public class Logic
         // do not worry about the specifics of how this works for now.
         switch (shapeForCalculations) {
             case Box:
-                mOut.print("A " 
-                           + mLength 
-                           + " by " 
-                           + mWidth 
-                           + " by " 
-                           + mHeight 
-                           + " box has a volume of: ");
-                mOut.println("" 
-                             + String.format("%.2f",
-                                             boxVolume(mLength, mWidth, mHeight)));
+                mOut.print("A "
+                        + mLength
+                        + " by "
+                        + mWidth
+                        + " by "
+                        + mHeight
+                        + " box has a volume of: ");
+                mOut.println(""
+                        + String.format("%.2f",
+                        boxVolume(mLength, mWidth, mHeight)));
                 mOut.println("");
 
-                mOut.print("A " 
-                           + mLength 
-                           + " by " 
-                           + mWidth 
-                           + " by " 
-                           + mHeight 
-                           + " box has a surface area of: ");
-                mOut.println("" 
-                             + String.format("%.2f",
-                                             boxSurfaceArea(mLength, mWidth, mHeight)));
+                mOut.print("A "
+                        + mLength
+                        + " by "
+                        + mWidth
+                        + " by "
+                        + mHeight
+                        + " box has a surface area of: ");
+                mOut.println(""
+                        + String.format("%.2f",
+                        boxSurfaceArea(mLength, mWidth, mHeight)));
                 mOut.println("");
                 // If you are paying attention, you will notice that
                 // there is no 'break;' here like there is in other
@@ -99,20 +98,20 @@ public class Logic
                 // run the two sets of print statements above and the
                 // two statements below until the 'break;' statement.
             case Rectangle:
-                mOut.print("A " 
-                           + mLength 
-                           + " by " 
-                           + mWidth 
-                           + " rectangle has a perimeter of: ");
-                mOut.println("" + String.format("%.2f", 
-                                                rectanglePerimeter(mLength, mWidth)));
+                mOut.print("A "
+                        + mLength
+                        + " by "
+                        + mWidth
+                        + " rectangle has a perimeter of: ");
+                mOut.println("" + String.format("%.2f",
+                        rectanglePerimeter(mLength, mWidth)));
                 mOut.println("");
 
-                mOut.print("A " 
-                           + mLength 
-                           + " by " 
-                           + mWidth 
-                           + " rectangle has area of: ");
+                mOut.print("A "
+                        + mLength
+                        + " by "
+                        + mWidth
+                        + " rectangle has area of: ");
                 mOut.println("" + String.format("%.2f", rectangleArea(mLength, mWidth)));
                 mOut.println("");
                 break;
@@ -132,26 +131,26 @@ public class Logic
                 mOut.println("");
 
                 mOut.print("A circle with radius " + mRadius + " has area of: ");
-                mOut.println("" + String.format("%.2f", circleArea(mRadius)) );
+                mOut.println("" + String.format("%.2f", circleArea(mRadius)));
                 mOut.println("");
                 break;
             case Triangle:
-                mOut.print("A right triangle with base " 
-                           + mLength 
-                           + " and height " 
-                           + mWidth + " has a perimeter of: ");
-                mOut.println("" 
-                             + String.format("%.2f", rightTrianglePerimeter(mLength,
-                                                                       mWidth)));
+                mOut.print("A right triangle with base "
+                        + mLength
+                        + " and height "
+                        + mWidth + " has a perimeter of: ");
+                mOut.println(""
+                        + String.format("%.2f", rightTrianglePerimeter(mLength,
+                        mWidth)));
                 mOut.println("");
 
-                mOut.print("A right triangle with base " 
-                           + mLength 
-                           + " and height " 
-                           + mWidth 
-                           + " has area of: ");
-                mOut.println("" 
-                             + String.format("%.2f", rightTriangleArea(mLength,
+                mOut.print("A right triangle with base "
+                        + mLength
+                        + " and height "
+                        + mWidth
+                        + " has area of: ");
+                mOut.println(""
+                        + String.format("%.2f", rightTriangleArea(mLength,
                         mWidth)));
                 mOut.println("");
                 break;
@@ -160,7 +159,53 @@ public class Logic
         }
     }
 
-    // TODO -- add your code here
+    public static double rectangleArea(double mLength, double mHeight) {
+        double ractangle = (mLength * mHeight);
+        return ractangle;
+    }
 
+    public static double rectanglePerimeter(double mWidth, double mHeight) {
+        double perimeter = 2 * (mWidth + mHeight);
+        return perimeter;
+    }
 
+    public static double circleArea(double mRadius) {
+        double areacircle = (Math.PI * Math.pow(mRadius, 2));
+        return areacircle;
+    }
+
+    public static double circleCircumference(double mRadius) {
+        double circumference = (2 * Math.PI * mRadius);
+        return circumference;
+    }
+
+    public static double rightTriangleArea(double mLength, double mWidth) {
+        double areaTriangle = (mWidth * 0.5) * mLength;
+        return areaTriangle;
+    }
+
+    public static double rightTrianglePerimeter(double mLength, double mWidth) {
+        double righTriPer = mWidth + mLength + Math.hypot(mWidth, mLength);
+        return righTriPer;
+    }
+
+    public static double boxVolume(double mLength, double mWidth, double mHeight) {
+        double volumeBox = (mLength * mWidth * mHeight);
+        return volumeBox;
+    }
+
+    public static double boxSurfaceArea(double mLength, double mWidth, double mHeight) {
+        double surfaceAreabox = (2 * (mHeight * mWidth) + 2 * (mHeight * mLength) + 2 * (mWidth * mLength));
+        return surfaceAreabox;
+    }
+
+    public static double sphereVolume(double mRadius) {
+        double sphereV = ((4.0 / 3.0) * Math.PI * Math.pow(mRadius, 3));
+        return sphereV;
+    }
+
+    public static double sphereSurfaceArea(double mRadius) {
+        double areasphere = (4 * Math.PI * Math.pow(mRadius, 2));
+        return areasphere;
+    }
 }
